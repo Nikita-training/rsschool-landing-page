@@ -6,7 +6,7 @@ $light-text-accent: #B0907A;
 
 $light-bg-page: #E1D4C9;
 $light-bg-container: #665F55;
-$light-text-accent: #403F3D;
+$dark-bg-overlay: #403F3D;
 
 $light-border-primary: #C1B6AD;
 $light-border-inverse: #665F55;
@@ -97,4 +97,13 @@ $dark-border-inverse: #C1B6AD;
   @if $accent {
     font-style: italic;
   }
+}
+
+@mixin svg-icon($url, $color, $size) {
+    display: inline-block;
+    width: $size;
+    height: $size;
+    background-color: $color;
+    -webkit-mask: url(#{$url}) center / contain no-repeat;
+            mask: url(#{$url}) center / contain no-repeat;
 }

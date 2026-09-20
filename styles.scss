@@ -1,6 +1,7 @@
 @use "variables" as*;
+@use "reset";
 
-body{
+body {
     font-family: inter;
     display: flex;
     flex-direction: column;
@@ -10,23 +11,135 @@ body{
 }
 
 
-header{
+header {
     display: flex;
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
+    padding: 20px 40px;
+    justify-content: space-between;
 
-    .logo-container{
+    .logo-container {
         background-image: url(./assets/logo/light.png);
         height: 60px;
         width: 100px;
     }
-    nav{
-        ul{
+
+    nav {
+        ul {
             display: flex;
-            li{
+            gap: 40px;
+
+            li {
                 list-style: none;
+
+                a {
+                    @include action-link;
+                     position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%) scaleX(0);
+                        width: 100%;
+                        height: 2px;
+                        background-color: black;
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover::after {
+                        transform: translateX(-50%) scaleX(1);
+                    }
+                }
             }
+        }
+    }
+
+    .control-container {
+
+        display: flex;
+        align-items: center;
+        gap: 24px;
+
+        .theme-btn {
+            border: 1px solid $light-border-primary;
+            border-radius: 22px;
+            width: 88px;
+            height: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+
+            button {
+                width: 36px;
+                height: 36px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0;
+                transition: background-color 0.2s;
+
+                &.light {
+                    background-color: $light-text-accent;
+
+                    &::before {
+                        content: '';
+                        @include svg-icon('./assets/icons/Sun.svg', $light-text-inverse, 22px);
+                    }
+                }
+
+                &.dark {
+                    background-color: $light-bg-page;
+
+                    &::before {
+                        content: '';
+                        @include svg-icon('./assets/icons/Moon.svg', $light-text-primary, 18px);
+                    }
+
+                    &:hover {
+                        background-color: $dark-border-primary;
+
+                        &::before {
+                            content: '';
+                            @include svg-icon('./assets/icons/Moon.svg', $light-text-inverse, 18px);
+                        }
+                    }
+                }
+            }
+        }
+
+        .menu {
+            width: 72px;
+            height: 22px;
+            background-image: url(./assets/icons/coffee-cup.svg);
+            background-position: right;
+            background-repeat: no-repeat;
+
+            a {
+                @include action-link;
+                
+            }
+                                 position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%) scaleX(0);
+                        width: 100%;
+                        height: 2px;
+                        background-color: black;
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover::after {
+                        transform: translateX(-50%) scaleX(1);
+                    }
         }
     }
 }
