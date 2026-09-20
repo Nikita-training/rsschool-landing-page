@@ -1,0 +1,32 @@
+@use "variables" as*;
+
+body{
+    font-family: inter;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $light-bg-page;
+    color: $light-text-primary;
+}
+
+
+header{
+    display: flex;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    .logo-container{
+        background-image: url(./assets/logo/light.png);
+        height: 60px;
+        width: 100px;
+    }
+    nav{
+        ul{
+            display: flex;
+            li{
+                list-style: none;
+            }
+        }
+    }
+}

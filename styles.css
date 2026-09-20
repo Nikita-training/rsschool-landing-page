@@ -1,0 +1,26 @@
+body {
+  font-family: inter;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #E1D4C9;
+  color: #403F3D;
+}
+
+header {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+header .logo-container {
+  background-image: url(./assets/logo/light.png);
+  height: 60px;
+  width: 100px;
+}
+header nav ul {
+  display: flex;
+}
+header nav ul li {
+  list-style: none;
+}/*# sourceMappingURL=styles.css.map */
