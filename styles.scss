@@ -475,3 +475,65 @@ main {
         }
     }
 }
+
+#about {
+
+    h2 {
+        @include heading-2;
+        color: var(--text-primary);
+
+        span {
+            @include heading-2(true);
+            color: var(--text-accent);
+        }
+
+        padding-bottom: 40px;
+    }
+
+    .photo-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        max-height: 1060px;
+        column-gap: 40px;
+        row-gap: 40px;
+
+        .photo {
+            width: calc((100% - 40px)/2);
+            border-radius: 20px;
+            background-position: center;
+            background-size: 110%;
+            transition: background-size 0.5s linear;
+
+            &:hover {
+                background-size: 100%;
+            }
+
+        }
+
+        .t1 {
+            aspect-ratio: 660/590;
+        }
+
+        .t2 {
+            height: 430px;
+        }
+
+        .p1 {
+            background-image: url(./assets/img/about-1.jpg);
+
+        }
+
+        .p2 {
+            background-image: url(./assets/img/about-2.jpg);
+        }
+
+        .p3 {
+            background-image: url(./assets/img/about-3.jpg);
+        }
+
+        .p4 {
+            background-image: url(./assets/img/about-4.jpg);
+        }
+    }
+}
