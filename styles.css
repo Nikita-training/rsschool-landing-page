@@ -62,6 +62,10 @@ ul {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Inter", sans-serif;
   display: flex;
@@ -183,6 +187,7 @@ header .control-container .menu {
   align-items: center;
   width: 72px;
   height: 22px;
+  position: relative;
 }
 header .control-container .menu a {
   font-size: 16px;
@@ -201,9 +206,6 @@ header .control-container .menu a::after {
   -webkit-mask: url(./assets/icons/coffee-cup.svg) center/contain no-repeat;
   mask: url(./assets/icons/coffee-cup.svg) center/contain no-repeat;
 }
-header .control-container .menu {
-  position: relative;
-}
 header .control-container .menu::after {
   content: "";
   position: absolute;
@@ -216,6 +218,9 @@ header .control-container .menu::after {
   transition: transform 0.3s ease;
 }
 header .control-container .menu:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+header .control-container .menu.active::after {
   transform: translateX(-50%) scaleX(1);
 }
 header .control-container .burger-btn {
