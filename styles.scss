@@ -355,3 +355,123 @@ main {
     }
 
 }
+
+#favorite {
+    padding: 100px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        @include heading-2;
+        color: var(--text-primary);
+
+        span {
+            @include heading-2(accent);
+            color: var(--text-accent);
+        }
+    }
+
+    .carousel-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        button {
+            border-radius: 50%;
+            height: 60px;
+            min-width: 60px;
+            border: 1px solid var(--border-inverse);
+            background: transparent;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: border-color 0.2s, background-color 0.2s;
+
+            &.left::before {
+                content: '';
+                @include svg-icon('./assets/icons/arrow-left.svg', var(--text-primary), 24px);
+            }
+
+            &.right::before {
+                content: '';
+                @include svg-icon('./assets/icons/arrow-left.svg', var(--text-primary), 24px);
+                transform: rotate(180deg);
+            }
+
+            &:hover {
+                background-color: var(--border-inverse);
+                border-color: var(--border-inverse);
+
+                &::before {
+                    background-color: var(--text-inverse);
+                }
+            }
+        }
+
+        .carousel {
+            text-align: center;
+            max-width: 480px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            img {
+                display: block;
+                width: 100%;
+                max-width: 480px;
+                height: auto;
+                flex: 1 1 auto;
+                min-width: 0;
+            }
+
+            h3 {
+                @include heading-3;
+                color: var(--text-primary);
+                padding-top: 20px;
+            }
+
+            p {
+                @include body-medium;
+                color: var(--text-primary);
+                padding: 16px 0;
+            }
+        }
+
+    }
+
+    .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        margin-top: 40px;
+
+        .dot {
+            display: block;
+            min-width: 40px;
+            height: 4px;
+            border-radius: 100px;
+            background-color: var(--border-primary);
+            transition: background-color 0.3s ease, width 0.3s ease;
+
+            &.is-active {
+                background-color: var(--text-primary);
+            }
+        }
+    }
+
+    @include md {
+
+        h2 {
+            @include heading-m-2;
+
+            span {
+                @include heading-m-2(true);
+            }
+        }
+    }
+}
