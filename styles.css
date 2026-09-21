@@ -273,4 +273,131 @@ header .control-container .burger-btn.is-open span:nth-child(2) {
   header .control-container {
     gap: 12px;
   }
+}
+
+main {
+  max-width: 1440px;
+  padding: 0 40px;
+  margin: auto;
+  width: 100%;
+}
+@media (max-width: 600px) {
+  main {
+    padding: 0 16px;
+  }
+}
+
+#hero {
+  max-width: 1440px;
+  max-height: 644px;
+  width: 100%;
+  border-radius: 40px;
+  background-image: url(./assets/img/img-hero.jpg);
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  padding: 100px clamp(60px, 5.95vw + 14.3px, 100px);
+}
+#hero .info {
+  max-width: 530px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+#hero .info h1 {
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 105%;
+  color: var(--text-inverse);
+}
+#hero .info h1 span {
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 105%;
+  font-style: italic;
+  color: var(--text-accent);
+}
+#hero .info p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--text-inverse);
+}
+#hero .info button a {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 78px;
+  border-radius: 100px;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+}
+#hero .info button a span {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+#hero .info button a::after {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/coffee-cup.svg) center/contain no-repeat;
+  mask: url(./assets/icons/coffee-cup.svg) center/contain no-repeat;
+  position: absolute;
+  top: 50%;
+  right: 60px;
+  transform: translateY(-50%) translateX(-10px);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+#hero .info button a:hover span {
+  transform: translateX(-14px);
+}
+#hero .info button a:hover::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+#hero .info .control-container {
+  gap: 12px;
+}
+@media (max-width: 768px) {
+  #hero .info {
+    margin: 0;
+    padding: 0 16px;
+  }
+  #hero .info h1 {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 115%;
+  }
+  #hero .info h1 span {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 115%;
+    font-style: italic;
+  }
+}
+@media (max-width: 600px) {
+  #hero {
+    padding: 60px 16px;
+  }
+  #hero .info h1 {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 115%;
+  }
+  #hero .info h1 span {
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 115%;
+    font-style: italic;
+  }
 }/*# sourceMappingURL=styles.css.map */

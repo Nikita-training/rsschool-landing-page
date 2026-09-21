@@ -84,7 +84,6 @@
 // TYPOGRAPHY MOBILE
 
 @mixin heading-m-1($accent: false) {
-  font-family: $font-family-base;
   font-size: 42px;
   font-weight: 600;
   line-height: 115%;
@@ -95,7 +94,6 @@
 }
 
 @mixin heading-m-2($accent: false) {
-  font-family: $font-family-base;
   font-size: 32px;
   font-weight: 600;
   line-height: 125%;

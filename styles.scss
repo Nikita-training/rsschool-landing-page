@@ -229,3 +229,129 @@ header {
         }
     }
 }
+
+main {
+    max-width: 1440px;
+    padding: 0 40px;
+    margin: auto;
+    width: 100%;
+
+    @include sm2 {
+        padding: 0 16px;
+    }
+}
+
+#hero {
+
+    max-width: 1440px;
+    max-height: 644px;
+    width: 100%;
+    border-radius: 40px;
+    background-image: url(./assets/img/img-hero.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 100px clamp(60px, calc(5.95vw + 14.3px), 100px);
+
+    .info {
+        max-width: 530px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        h1 {
+            @include heading-1;
+            color: var(--text-inverse);
+
+            span {
+                @include heading-1(true);
+                color: var(--text-accent);
+            }
+        }
+
+        p {
+            @include body-medium;
+            color: var(--text-inverse);
+        }
+
+        button {
+            a {
+                @include action-link;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 20px 78px;
+                border-radius: 100px;
+                background-color: var(--bg-page);
+                color: var(--text-primary);
+                position: relative;
+                overflow: hidden;
+
+                span {
+                    display: inline-block;
+                    transition: transform 0.3s ease;
+                }
+
+                &::after {
+                    content: '';
+                    @include svg-icon('./assets/icons/coffee-cup.svg', var(--text-primary), 22px);
+                    position: absolute;
+                    top: 50%;
+                    right: 60px;
+                    transform: translateY(-50%) translateX(-10px);
+                    opacity: 0;
+                    transition: opacity 0.3s ease, transform 0.3s ease;
+                    pointer-events: none;
+                }
+
+                &:hover {
+                    span {
+                        transform: translateX(-14px);
+                    }
+
+                    &::after {
+                        opacity: 1;
+                        transform: translateY(-50%) translateX(0);
+                    }
+                }
+            }
+        }
+
+        .control-container {
+            gap: 12px;
+        }
+
+    }
+
+    @include md {
+        .info {
+            margin: 0;
+            padding: 0 16px;
+
+            h1 {
+                @include heading-m-1;
+
+                span {
+                    @include heading-m-1(true);
+                }
+            }
+        }
+    }
+
+    @include sm2 {
+        padding: 60px 16px;
+
+        .info {
+            h1 {
+                @include heading-m-1;
+
+                span {
+                    @include heading-m-1(true);
+                }
+            }
+        }
+
+    }
+
+}
