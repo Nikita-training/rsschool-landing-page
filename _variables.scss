@@ -117,7 +117,9 @@
 // RESPONSIVE
 $breakpoint-sm: 480px;
 $breakpoint-sm2: 600px;
-$breakpoint-md: 768px;
+$breakpoint-md: 767.98px;
+$breakpoint-md3: 768px;
+$breakpoint-md2: 1000px;
 $breakpoint-xl: 1440px;
 
 @mixin sm {
@@ -134,6 +136,17 @@ $breakpoint-xl: 1440px;
 
 @mixin md {
   @media (max-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+@mixin md3 {
+  @media (max-width: #{$breakpoint-md3}) {
+    @content;
+  }
+}
+
+@mixin md2 {
+  @media (max-width: #{$breakpoint-md2}) {
     @content;
   }
 }
