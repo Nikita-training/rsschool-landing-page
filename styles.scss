@@ -373,6 +373,7 @@ main {
     h2 {
         @include heading-2;
         color: var(--text-primary);
+        padding-bottom: 40px;
 
         span {
             @include heading-2(accent);
@@ -410,8 +411,8 @@ main {
             }
 
             &:hover {
-                background-color: var(--border-inverse);
-                border-color: var(--border-inverse);
+                background-color: var(--bg-container);
+                border-color: var(--bg-container);
 
                 &::before {
                     background-color: var(--text-inverse);
@@ -440,12 +441,17 @@ main {
                 @include heading-3;
                 color: var(--text-primary);
                 padding-top: 20px;
+
+                &.price {
+                    padding-top: 0px;
+                }
             }
 
             p {
                 @include body-medium;
                 color: var(--text-primary);
                 padding: 16px 0;
+                max-width: 470px;
             }
         }
 
@@ -467,7 +473,7 @@ main {
             transition: background-color 0.3s ease, width 0.3s ease;
 
             &.is-active {
-                background-color: var(--text-primary);
+                background-color: var(--border-inverse);
             }
         }
     }
@@ -547,6 +553,7 @@ main {
 }
 
 #mobile_app {
+    padding: 100px 0;
     display: flex;
     justify-content: space-between;
 
@@ -561,6 +568,7 @@ main {
             gap: 40px;
 
             h2 {
+                max-width: 600px;
                 @include heading-2;
                 color: var(--text-primary);
 
@@ -582,12 +590,12 @@ main {
                 .button {
                     display: flex;
                     align-items: center;
-                    justify-content: center;
+                    justify-content: left;
                     gap: 12px;
                     width: 200px;
                     height: 64px;
                     padding: 12px 20px;
-                    border: 1px solid var(--border-primary);
+                    border: 1px solid var(--border-inverse);
                     border-radius: 100px;
                     background-color: transparent;
                     color: var(--text-primary);
@@ -609,14 +617,43 @@ main {
 
                     &.app-store::before {
                         content: '';
-                        @include svg-icon('./assets/icons/apple.svg', var(--text-primary), 24px);
+                        @include svg-icon('./assets/icons/apple.svg', var(--text-primary), 36px);
                         flex-shrink: 0;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    &.app-store:hover::before {
+                        content: '';
+                        @include svg-icon('./assets/icons/apple.svg', var(--text-inverse), 36px);
+                        flex-shrink: 0;
+                        transition: background-color 0.3s ease;
                     }
 
                     &.google-play::before {
                         content: '';
-                        @include svg-icon('./assets/icons/android.svg', var(--text-primary), 24px);
+                        @include svg-icon('./assets/icons/android.svg', var(--text-primary), 36px);
                         flex-shrink: 0;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    &.google-play:hover::before {
+                        content: '';
+                        @include svg-icon('./assets/icons/android.svg', var(--text-inverse), 36px);
+                        flex-shrink: 0;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    .text {
+                        display: flex;
+                        flex-direction: column;
+
+                        .caption {
+                            @include body-caption;
+                        }
+
+                        .action {
+                            @include action-link;
+                        }
                     }
                 }
             }
@@ -666,7 +703,7 @@ footer {
                 justify-content: center;
                 width: 60px;
                 height: 60px;
-                border: 1px solid var(--border-inverse);
+                border: 1px solid var(--border-primary);
                 border-radius: 50%;
                 cursor: pointer;
                 background-color: transparent;
@@ -680,41 +717,47 @@ footer {
                 }
 
                 &.twitter::before {
-                    @include svg-icon('./assets/icons/twitter.svg', var(--text-primary), 24px);
+                    @include svg-icon('./assets/icons/twitter.svg', var(--text-inverse), 24px);
                 }
 
                 &.instagram::before {
-                    @include svg-icon('./assets/icons/instagram.svg', var(--text-primary), 24px);
+                    @include svg-icon('./assets/icons/instagram.svg', var(--text-inverse), 24px);
                 }
 
                 &.facebook::before {
-                    @include svg-icon('./assets/icons/facebook.svg', var(--text-primary), 24px);
+                    @include svg-icon('./assets/icons/facebook.svg', var(--text-inverse), 24px);
                 }
 
                 &:hover {
-                    background-color: var(--bg-container);
+                    background-color: var(--bg-page);
                     border-color: transparent;
 
                     &.twitter::before,
                     &.instagram::before,
                     &.facebook::before {
-                        background-color: var(--text-inverse);
+                        background-color: var(--text-primary);
                     }
                 }
             }
         }
     }
 
-
     .contact {
         flex: 1;
         margin-top: 32px;
+
+        h3 {
+            @include heading-3;
+            color: var(--text-inverse);
+        }
 
         .contact-info {
             margin-top: 40px;
             display: inline-flex;
             flex-direction: column;
             gap: 14px;
+            @include action-link;
+            color: var(--text-inverse);
 
             a {
                 background: inherit;
@@ -740,31 +783,32 @@ footer {
                 &::after {
                     content: '';
                     position: absolute;
-                    bottom: -4px;
-                    left: 0;
+                    bottom: -5px;
+                    left: 50%;
+                    transform: translateX(-50%) scaleX(0);
                     width: 100%;
                     height: 2px;
-                    background-color: var(--border-inverse);
-                    transform: scaleX(0);
-                    transform-origin: left;
-                    transition: transform 0.5s ease-in-out;
+                    background-color: var(--text-inverse);
+                    transition: transform 0.3s ease;
                 }
 
                 &:hover::after {
-                    transform: scaleX(1);
+                    transform: translateX(-50%) scaleX(1);
                 }
+
+
             }
 
             .address::before {
-                @include svg-icon('./assets/icons/address.svg', var(--text-primary), 20px);
+                @include svg-icon('./assets/icons/address.svg', var(--text-inverse), 20px);
             }
 
             .phone::before {
-                @include svg-icon('./assets/icons/phone.svg', var(--text-primary), 20px);
+                @include svg-icon('./assets/icons/phone.svg', var(--text-inverse), 20px);
             }
 
             .working-hours::before {
-                @include svg-icon('./assets/icons/clock.svg', var(--text-primary), 20px);
+                @include svg-icon('./assets/icons/clock.svg', var(--text-inverse), 20px);
             }
         }
 
