@@ -672,6 +672,8 @@ main {
 }
 
 footer {
+    max-width: 1360px;
+    margin: auto;
     display: flex;
     border-radius: 40px;
     padding: 100px;
@@ -822,9 +824,15 @@ footer {
     align-items: center;
 
     h1 {
+        @include heading-2;
+        color: var(--text-primary);
+
+        span {
+            @include heading-2(true);
+            color: var(--text-accent);
+        }
+
         text-align: center;
-        font-size: 60px;
-        line-height: 125%;
         max-width: 800px;
     }
 
@@ -833,19 +841,35 @@ footer {
         display: flex;
         gap: 16px;
         justify-content: center;
+        color: var(--text-primary);
 
         .option {
             text-align: right;
             padding: 8px 16px 8px 8px;
-            border: 1px solid var(--border-inverse);
+            border: 1px solid var(--border-primary);
             border-radius: 100px;
             display: flex;
             align-items: center;
             gap: 8px;
+            cursor: pointer;
+            transition:
+                background-color 0.3s ease,
+                color 0.3s ease,
+                border-color 0.3s ease;
 
             &.active {
-                background-color: var(--border-primary);
+                background-color: var(--bg-container);
                 color: var(--bg-page);
+
+            }
+
+            &:hover {
+                background-color: var(--bg-container);
+                color: var(--bg-page);
+
+                .icon {
+                    background-color: var(--bg-page);
+                }
 
             }
 
@@ -856,7 +880,7 @@ footer {
                 border-radius: 50%;
                 background-position: center;
                 background-repeat: no-repeat;
-                background-color: var(--border-inverse);
+                background-color: var(--border-primary);
 
                 &.active {
                     background-color: var(--bg-page);
@@ -892,7 +916,7 @@ footer {
         .item-card {
             width: 310px;
             height: 506px;
-            border: 1px solid var(--border-inverse);
+            border: 1px solid var(--border-primary);
             border-radius: 40px;
             cursor: pointer;
 
@@ -911,10 +935,17 @@ footer {
                 display: flex;
                 flex-direction: column;
 
+                h3 {
+                    @include heading-3;
+                    color: var(--text-primary);
+                }
+
 
                 p {
                     padding-top: 12px;
                     flex-grow: 1;
+                    @include body-medium;
+                    color: var(--text-primary);
                 }
             }
 

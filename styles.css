@@ -721,6 +721,8 @@ main {
 }
 
 footer {
+  max-width: 1360px;
+  margin: auto;
   display: flex;
   border-radius: 40px;
   padding: 100px;
@@ -880,9 +882,20 @@ footer .contact .contact-info .working-hours::before {
   align-items: center;
 }
 #menu h1 {
-  text-align: center;
   font-size: 60px;
+  font-weight: 600;
   line-height: 125%;
+  color: var(--text-primary);
+}
+#menu h1 span {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+  font-style: italic;
+  color: var(--text-accent);
+}
+#menu h1 {
+  text-align: center;
   max-width: 800px;
 }
 #menu .menu-selection {
@@ -890,19 +903,29 @@ footer .contact .contact-info .working-hours::before {
   display: flex;
   gap: 16px;
   justify-content: center;
+  color: var(--text-primary);
 }
 #menu .menu-selection .option {
   text-align: right;
   padding: 8px 16px 8px 8px;
-  border: 1px solid var(--border-inverse);
+  border: 1px solid var(--border-primary);
   border-radius: 100px;
   display: flex;
   align-items: center;
   gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 #menu .menu-selection .option.active {
-  background-color: var(--border-primary);
+  background-color: var(--bg-container);
   color: var(--bg-page);
+}
+#menu .menu-selection .option:hover {
+  background-color: var(--bg-container);
+  color: var(--bg-page);
+}
+#menu .menu-selection .option:hover .icon {
+  background-color: var(--bg-page);
 }
 #menu .menu-selection .option .icon {
   width: 30px;
@@ -910,7 +933,7 @@ footer .contact .contact-info .working-hours::before {
   border-radius: 50%;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: var(--border-inverse);
+  background-color: var(--border-primary);
 }
 #menu .menu-selection .option .icon.active {
   background-color: var(--bg-page);
@@ -937,7 +960,7 @@ footer .contact .contact-info .working-hours::before {
 #menu .items .item-card {
   width: 310px;
   height: 506px;
-  border: 1px solid var(--border-inverse);
+  border: 1px solid var(--border-primary);
   border-radius: 40px;
   cursor: pointer;
 }
@@ -955,9 +978,19 @@ footer .contact .contact-info .working-hours::before {
   display: flex;
   flex-direction: column;
 }
+#menu .items .item-card .item-description h3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+  color: var(--text-primary);
+}
 #menu .items .item-card .item-description p {
   padding-top: 12px;
   flex-grow: 1;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--text-primary);
 }
 #menu .items .item-card:hover .item-image {
   background-size: 100%;
