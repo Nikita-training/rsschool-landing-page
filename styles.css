@@ -667,4 +667,149 @@ main {
 }
 #mobile_app .phone_photo img {
   max-width: 100%;
+}
+
+footer {
+  display: flex;
+  border-radius: 40px;
+  padding: 100px;
+  gap: 100px;
+  background-color: var(--bg-container);
+  color: var(--text-inverse);
+}
+footer .social-info {
+  flex: 1;
+}
+footer .social-info h2 {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+  color: var(--text-inverse);
+}
+footer .social-info h2 span {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+  font-style: italic;
+  color: var(--text-accent);
+}
+footer .social-info .social-icons {
+  margin-top: 40px;
+  display: flex;
+  gap: 12px;
+}
+footer .social-info .social-icons .social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border: 1px solid var(--border-inverse);
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: transparent;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+footer .social-info .social-icons .social::before {
+  content: "";
+  flex-shrink: 0;
+}
+footer .social-info .social-icons .social.twitter::before {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/twitter.svg) center/contain no-repeat;
+  mask: url(./assets/icons/twitter.svg) center/contain no-repeat;
+}
+footer .social-info .social-icons .social.instagram::before {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/instagram.svg) center/contain no-repeat;
+  mask: url(./assets/icons/instagram.svg) center/contain no-repeat;
+}
+footer .social-info .social-icons .social.facebook::before {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/facebook.svg) center/contain no-repeat;
+  mask: url(./assets/icons/facebook.svg) center/contain no-repeat;
+}
+footer .social-info .social-icons .social:hover {
+  background-color: var(--bg-container);
+  border-color: transparent;
+}
+footer .social-info .social-icons .social:hover.twitter::before, footer .social-info .social-icons .social:hover.instagram::before, footer .social-info .social-icons .social:hover.facebook::before {
+  background-color: var(--text-inverse);
+}
+footer .contact {
+  flex: 1;
+  margin-top: 32px;
+}
+footer .contact .contact-info {
+  margin-top: 40px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 14px;
+}
+footer .contact .contact-info a {
+  background: inherit;
+  color: inherit;
+  cursor: default;
+}
+footer .contact .contact-info .contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 0;
+  cursor: pointer;
+  position: relative;
+}
+footer .contact .contact-info .contact-item::before {
+  content: "";
+  flex-shrink: 0;
+  background-color: var(--text-primary);
+  transition: background-color 0.3s ease;
+}
+footer .contact .contact-info .contact-item::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--border-inverse);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-in-out;
+}
+footer .contact .contact-info .contact-item:hover::after {
+  transform: scaleX(1);
+}
+footer .contact .contact-info .address::before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/address.svg) center/contain no-repeat;
+  mask: url(./assets/icons/address.svg) center/contain no-repeat;
+}
+footer .contact .contact-info .phone::before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/phone.svg) center/contain no-repeat;
+  mask: url(./assets/icons/phone.svg) center/contain no-repeat;
+}
+footer .contact .contact-info .working-hours::before {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/clock.svg) center/contain no-repeat;
+  mask: url(./assets/icons/clock.svg) center/contain no-repeat;
 }/*# sourceMappingURL=styles.css.map */

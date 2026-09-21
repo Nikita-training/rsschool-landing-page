@@ -604,6 +604,7 @@ main {
                         @include svg-icon('./assets/icons/apple.svg', var(--text-primary), 24px);
                         flex-shrink: 0;
                     }
+
                     &.google-play::before {
                         content: '';
                         @include svg-icon('./assets/icons/android.svg', var(--text-primary), 24px);
@@ -622,5 +623,142 @@ main {
         img {
             max-width: 100%;
         }
+    }
+}
+
+footer {
+    display: flex;
+    border-radius: 40px;
+    padding: 100px;
+    gap: 100px;
+    background-color: var(--bg-container);
+    color: var(--text-inverse);
+
+    .social-info {
+        flex: 1;
+
+        h2 {
+            @include heading-2;
+            color: var(--text-inverse);
+
+            span {
+                @include heading-2(true);
+                color: var(--text-accent);
+            }
+        }
+
+        .social-icons {
+            margin-top: 40px;
+            display: flex;
+            gap: 12px;
+
+            .social {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 60px;
+                height: 60px;
+                border: 1px solid var(--border-inverse);
+                border-radius: 50%;
+                cursor: pointer;
+                background-color: transparent;
+                transition:
+                    border-color 0.3s ease,
+                    background-color 0.3s ease;
+
+                &::before {
+                    content: '';
+                    flex-shrink: 0;
+                }
+
+                &.twitter::before {
+                    @include svg-icon('./assets/icons/twitter.svg', var(--text-primary), 24px);
+                }
+
+                &.instagram::before {
+                    @include svg-icon('./assets/icons/instagram.svg', var(--text-primary), 24px);
+                }
+
+                &.facebook::before {
+                    @include svg-icon('./assets/icons/facebook.svg', var(--text-primary), 24px);
+                }
+
+                &:hover {
+                    background-color: var(--bg-container);
+                    border-color: transparent;
+
+                    &.twitter::before,
+                    &.instagram::before,
+                    &.facebook::before {
+                        background-color: var(--text-inverse);
+                    }
+                }
+            }
+        }
+    }
+
+
+    .contact {
+        flex: 1;
+        margin-top: 32px;
+
+        .contact-info {
+            margin-top: 40px;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 14px;
+
+            a {
+                background: inherit;
+                color: inherit;
+                cursor: default;
+            }
+
+            .contact-item {
+                display: inline-flex;
+                align-items: center;
+                gap: 12px;
+                padding-left: 0;
+                cursor: pointer;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    flex-shrink: 0;
+                    background-color: var(--text-primary);
+                    transition: background-color 0.3s ease;
+                }
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -4px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: var(--border-inverse);
+                    transform: scaleX(0);
+                    transform-origin: left;
+                    transition: transform 0.5s ease-in-out;
+                }
+
+                &:hover::after {
+                    transform: scaleX(1);
+                }
+            }
+
+            .address::before {
+                @include svg-icon('./assets/icons/address.svg', var(--text-primary), 20px);
+            }
+
+            .phone::before {
+                @include svg-icon('./assets/icons/phone.svg', var(--text-primary), 20px);
+            }
+
+            .working-hours::before {
+                @include svg-icon('./assets/icons/clock.svg', var(--text-primary), 20px);
+            }
+        }
+
     }
 }
