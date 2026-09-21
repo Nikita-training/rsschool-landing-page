@@ -99,6 +99,8 @@ $dark-border-inverse: #C1B6AD;
   }
 }
 
+// SVG
+
 @mixin svg-icon($url, $color, $size) {
     display: inline-block;
     width: $size;
@@ -107,3 +109,14 @@ $dark-border-inverse: #C1B6AD;
     -webkit-mask: url(#{$url}) center / contain no-repeat;
             mask: url(#{$url}) center / contain no-repeat;
 }
+
+// RESPONSIVE
+$breakpoint-sm: 480px;
+$breakpoint-sm2: 600px;
+$breakpoint-md: 768px;
+$breakpoint-xl: 1440px;
+
+@mixin sm { @media (max-width: #{$breakpoint-sm}) { @content; } }
+@mixin sm2 { @media (max-width: #{$breakpoint-sm2}) { @content; } }
+@mixin md { @media (max-width: #{$breakpoint-md}) { @content; } }
+@mixin xl { @media (min-width: #{$breakpoint-xl}) { @content; } }

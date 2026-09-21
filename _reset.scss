@@ -29,3 +29,13 @@ input[type="reset"] {
   -moz-appearance: none;
   appearance: none;
 }
+
+*{
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

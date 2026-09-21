@@ -26,8 +26,18 @@ input[type=reset] {
   appearance: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: inter;
+  font-family: "Inter", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -46,14 +56,18 @@ header {
 header .logo-container {
   background-image: url(./assets/logo/light.png);
   height: 60px;
-  width: 100px;
+  min-width: 100px;
+}
+header nav {
+  display: flex;
+  align-items: center;
+  max-width: 455px;
+  width: 100%;
 }
 header nav ul {
+  width: 100%;
   display: flex;
-  gap: 40px;
-}
-header nav ul li {
-  list-style: none;
+  justify-content: space-between;
 }
 header nav ul li a {
   font-size: 16px;
@@ -69,7 +83,7 @@ header nav ul li a::after {
   transform: translateX(-50%) scaleX(0);
   width: 100%;
   height: 2px;
-  background-color: black;
+  background-color: #403F3D;
   transition: transform 0.3s ease;
 }
 header nav ul li a:hover::after {
@@ -78,6 +92,7 @@ header nav ul li a:hover::after {
 header .control-container {
   display: flex;
   align-items: center;
+  padding-left: 44px;
   gap: 24px;
 }
 header .control-container .theme-btn {
@@ -164,4 +179,61 @@ header .control-container .menu::after {
 }
 header .control-container .menu:hover::after {
   transform: translateX(-50%) scaleX(1);
+}
+header .control-container .burger-btn {
+  display: none;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0;
+  border: 1px solid #665F55;
+  background: transparent;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+header .control-container .burger-btn span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background-color: #403F3D;
+  border-radius: 1px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+header .control-container .burger-btn:hover {
+  border-color: #B0907A;
+}
+header .control-container .burger-btn:hover span {
+  background-color: #B0907A;
+}
+header .control-container .burger-btn.is-open span:nth-child(1) {
+  transform: translateY(4px) rotate(45deg);
+}
+header .control-container .burger-btn.is-open span:nth-child(2) {
+  transform: translateY(-4px) rotate(-45deg);
+}
+@media (max-width: 768px) {
+  header nav {
+    display: none;
+  }
+  header .control-container .menu {
+    display: none;
+  }
+  header .control-container .burger-btn {
+    display: flex;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    padding: 20px 16px;
+  }
+  header .control-container {
+    gap: 12px;
+  }
 }/*# sourceMappingURL=styles.css.map */
