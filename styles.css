@@ -1,3 +1,27 @@
+:root {
+  --text-primary: #403F3D;
+  --text-inverse: #E1D4C9;
+  --text-accent: #B0907A;
+  --bg-page: #E1D4C9;
+  --bg-container: #665F55;
+  --bg-overlay: rgba(64, 63, 61, 0.8);
+  --border-primary: #C1B6AD;
+  --border-inverse: #665F55;
+  --logo: url('./assets/logo/light.png');
+}
+
+[data-theme=dark] {
+  --text-primary: #E1D4C9;
+  --text-inverse: #E1D4C9;
+  --text-accent: #B0907A;
+  --bg-page: #292826;
+  --bg-container: #403F3D;
+  --bg-overlay: rgba(41, 40, 38, 0.8);
+  --border-primary: #665F55;
+  --border-inverse: #C1B6AD;
+  --logo: url('./assets/logo/dark.png');
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -28,6 +52,8 @@ input[type=reset] {
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 ul {
@@ -41,8 +67,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: #E1D4C9;
-  color: #403F3D;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
 }
 
 header {
@@ -54,7 +80,7 @@ header {
   justify-content: space-between;
 }
 header .logo-container {
-  background-image: url(./assets/logo/light.png);
+  background-image: var(--logo);
   height: 60px;
   min-width: 100px;
 }
@@ -83,7 +109,7 @@ header nav ul li a::after {
   transform: translateX(-50%) scaleX(0);
   width: 100%;
   height: 2px;
-  background-color: #403F3D;
+  background-color: var(--text-primary);
   transition: transform 0.3s ease;
 }
 header nav ul li a:hover::after {
@@ -96,7 +122,7 @@ header .control-container {
   gap: 24px;
 }
 header .control-container .theme-btn {
-  border: 1px solid #C1B6AD;
+  border: 1px solid var(--border-primary);
   border-radius: 22px;
   width: 88px;
   height: 44px;
@@ -116,52 +142,63 @@ header .control-container .theme-btn button {
   transition: background-color 0.2s;
 }
 header .control-container .theme-btn button.light {
-  background-color: #B0907A;
+  background-color: var(--text-accent);
 }
 header .control-container .theme-btn button.light::before {
   content: "";
   display: inline-block;
   width: 22px;
   height: 22px;
-  background-color: #E1D4C9;
+  background-color: var(--text-inverse);
   -webkit-mask: url(./assets/icons/Sun.svg) center/contain no-repeat;
   mask: url(./assets/icons/Sun.svg) center/contain no-repeat;
 }
 header .control-container .theme-btn button.dark {
-  background-color: #E1D4C9;
+  background-color: var(--bg-page);
 }
 header .control-container .theme-btn button.dark::before {
   content: "";
   display: inline-block;
   width: 18px;
   height: 18px;
-  background-color: #403F3D;
+  background-color: var(--text-primary);
   -webkit-mask: url(./assets/icons/Moon.svg) center/contain no-repeat;
   mask: url(./assets/icons/Moon.svg) center/contain no-repeat;
 }
 header .control-container .theme-btn button.dark:hover {
-  background-color: #665F55;
+  background-color: var(--border-inverse);
 }
 header .control-container .theme-btn button.dark:hover::before {
   content: "";
   display: inline-block;
   width: 18px;
   height: 18px;
-  background-color: #E1D4C9;
+  background-color: var(--text-inverse);
   -webkit-mask: url(./assets/icons/Moon.svg) center/contain no-repeat;
   mask: url(./assets/icons/Moon.svg) center/contain no-repeat;
 }
 header .control-container .menu {
+  display: flex;
+  align-items: center;
   width: 72px;
   height: 22px;
-  background-image: url(./assets/icons/coffee-cup.svg);
-  background-position: right;
-  background-repeat: no-repeat;
 }
 header .control-container .menu a {
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
+  position: relative;
+}
+header .control-container .menu a::after {
+  position: absolute;
+  right: -30px;
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/coffee-cup.svg) center/contain no-repeat;
+  mask: url(./assets/icons/coffee-cup.svg) center/contain no-repeat;
 }
 header .control-container .menu {
   position: relative;
@@ -169,7 +206,7 @@ header .control-container .menu {
 header .control-container .menu::after {
   content: "";
   position: absolute;
-  bottom: 0;
+  bottom: -5px;
   left: 50%;
   transform: translateX(-50%) scaleX(0);
   width: 100%;
@@ -190,7 +227,7 @@ header .control-container .burger-btn {
   justify-content: center;
   gap: 6px;
   padding: 0;
-  border: 1px solid #665F55;
+  border: 1px solid var(--border-inverse);
   background: transparent;
   cursor: pointer;
   width: 44px;
@@ -202,15 +239,15 @@ header .control-container .burger-btn span {
   display: block;
   width: 20px;
   height: 2px;
-  background-color: #403F3D;
+  background-color: var(--text-primary);
   border-radius: 1px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 header .control-container .burger-btn:hover {
-  border-color: #B0907A;
+  border-color: var(--text-accent);
 }
 header .control-container .burger-btn:hover span {
-  background-color: #B0907A;
+  background-color: var(--text-accent);
 }
 header .control-container .burger-btn.is-open span:nth-child(1) {
   transform: translateY(4px) rotate(45deg);

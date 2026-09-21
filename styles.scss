@@ -6,8 +6,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: $light-bg-page;
-    color: $light-text-primary;
+    background-color: var(--bg-page);
+    color: var(--text-primary);
 }
 
 
@@ -20,7 +20,7 @@ header {
     justify-content: space-between;
 
     .logo-container {
-        background-image: url(./assets/logo/light.png);
+        background-image: var(--logo);
         height: 60px;
         min-width: 100px;
     }
@@ -50,7 +50,7 @@ header {
                         transform: translateX(-50%) scaleX(0);
                         width: 100%;
                         height: 2px;
-                        background-color: $light-text-primary;
+                        background-color: var(--text-primary);
                         transition: transform 0.3s ease;
                     }
 
@@ -70,7 +70,7 @@ header {
         gap: 24px;
 
         .theme-btn {
-            border: 1px solid $light-border-primary;
+            border: 1px solid var(--border-primary);
             border-radius: 22px;
             width: 88px;
             height: 44px;
@@ -90,28 +90,28 @@ header {
                 transition: background-color 0.2s;
 
                 &.light {
-                    background-color: $light-text-accent;
+                    background-color: var(--text-accent);
 
                     &::before {
                         content: '';
-                        @include svg-icon('./assets/icons/Sun.svg', $light-text-inverse, 22px);
+                        @include svg-icon('./assets/icons/Sun.svg', var(--text-inverse), 22px);
                     }
                 }
 
                 &.dark {
-                    background-color: $light-bg-page;
+                    background-color: var(--bg-page);
 
                     &::before {
                         content: '';
-                        @include svg-icon('./assets/icons/Moon.svg', $light-text-primary, 18px);
+                        @include svg-icon('./assets/icons/Moon.svg', var(--text-primary), 18px);
                     }
 
                     &:hover {
-                        background-color: $dark-border-primary;
+                        background-color: var(--border-inverse);
 
                         &::before {
                             content: '';
-                            @include svg-icon('./assets/icons/Moon.svg', $light-text-inverse, 18px);
+                            @include svg-icon('./assets/icons/Moon.svg', var(--text-inverse), 18px);
                         }
                     }
                 }
@@ -119,15 +119,21 @@ header {
         }
 
         .menu {
+            display: flex;
+            align-items: center;
             width: 72px;
             height: 22px;
-            background-image: url(./assets/icons/coffee-cup.svg);
-            background-position: right;
-            background-repeat: no-repeat;
 
             a {
                 @include action-link;
+                position: relative;
 
+                &::after {
+                    position: absolute;
+                    right: -30px;
+                    content: '';
+                    @include svg-icon('./assets/icons/coffee-cup.svg', var(--text-primary), 22px);
+                }
             }
 
             position: relative;
@@ -135,7 +141,7 @@ header {
             &::after {
                 content: '';
                 position: absolute;
-                bottom: 0;
+                bottom: -5px;
                 left: 50%;
                 transform: translateX(-50%) scaleX(0);
                 width: 100%;
@@ -159,7 +165,7 @@ header {
             justify-content: center;
             gap: 6px;
             padding: 0;
-            border: 1px solid $light-border-inverse;
+            border: 1px solid var(--border-inverse);
             background: transparent;
             cursor: pointer;
 
@@ -174,16 +180,16 @@ header {
                 display: block;
                 width: 20px;
                 height: 2px;
-                background-color: $light-text-primary;
+                background-color: var(--text-primary);
                 border-radius: 1px;
                 transition: transform 0.3s ease, opacity 0.3s ease;
             }
 
             &:hover {
-                border-color: $light-text-accent;
+                border-color: var(--text-accent);
 
                 span {
-                    background-color: $light-text-accent;
+                    background-color: var(--text-accent);
                 }
             }
 
@@ -205,9 +211,10 @@ header {
         }
 
         .control-container {
-            .menu{
+            .menu {
                 display: none;
             }
+
             .burger-btn {
                 display: flex;
             }

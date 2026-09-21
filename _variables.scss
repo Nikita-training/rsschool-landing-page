@@ -1,29 +1,35 @@
-// LIGHT THEME
+// THEME COLORS
 
-$light-text-primary: #403F3D;
-$light-text-inverse: #E1D4C9;
-$light-text-accent: #B0907A;
+:root {
+  --text-primary: #403F3D;
+  --text-inverse: #E1D4C9;
+  --text-accent: #B0907A;
 
-$light-bg-page: #E1D4C9;
-$light-bg-container: #665F55;
-$dark-bg-overlay: #403F3D;
+  --bg-page: #E1D4C9;
+  --bg-container: #665F55;
+  --bg-overlay: rgba(64, 63, 61, 0.8);
 
-$light-border-primary: #C1B6AD;
-$light-border-inverse: #665F55;
+  --border-primary: #C1B6AD;
+  --border-inverse: #665F55;
 
-// DARK THEME
-$dark-text-primary: #E1D4C9;
-$dark-text-inverse: #E1D4C9;
-$dark-text-accent: #B0907A;
+  --logo: url('./assets/logo/light.png');
+}
 
-$dark-bg-page: #292826;
-$dark-bg-container: #403F3D;
-$dark-bg-overlay: rgba(41, 40, 38, 0.8);
+[data-theme="dark"] {
+  --text-primary: #E1D4C9;
+  --text-inverse: #E1D4C9;
+  --text-accent: #B0907A;
 
-$dark-border-primary: #665F55;
-$dark-border-inverse: #C1B6AD;
+  --bg-page: #292826;
+  --bg-container: #403F3D;
+  --bg-overlay: rgba(41, 40, 38, 0.8);
 
-// TYPOGRAPHY DESKTOP
+  --border-primary: #665F55;
+  --border-inverse: #C1B6AD;
+
+  --logo: url('./assets/logo/dark.png');
+}
+
 
 @mixin heading-1($accent: false) {
   font-size: 72px;
@@ -102,12 +108,12 @@ $dark-border-inverse: #C1B6AD;
 // SVG
 
 @mixin svg-icon($url, $color, $size) {
-    display: inline-block;
-    width: $size;
-    height: $size;
-    background-color: $color;
-    -webkit-mask: url(#{$url}) center / contain no-repeat;
-            mask: url(#{$url}) center / contain no-repeat;
+  display: inline-block;
+  width: $size;
+  height: $size;
+  background-color: $color;
+  -webkit-mask: url(#{$url}) center / contain no-repeat;
+  mask: url(#{$url}) center / contain no-repeat;
 }
 
 // RESPONSIVE
@@ -116,7 +122,26 @@ $breakpoint-sm2: 600px;
 $breakpoint-md: 768px;
 $breakpoint-xl: 1440px;
 
-@mixin sm { @media (max-width: #{$breakpoint-sm}) { @content; } }
-@mixin sm2 { @media (max-width: #{$breakpoint-sm2}) { @content; } }
-@mixin md { @media (max-width: #{$breakpoint-md}) { @content; } }
-@mixin xl { @media (min-width: #{$breakpoint-xl}) { @content; } }
+@mixin sm {
+  @media (max-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin sm2 {
+  @media (max-width: #{$breakpoint-sm2}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$breakpoint-xl}) {
+    @content;
+  }
+}
