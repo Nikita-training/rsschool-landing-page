@@ -80,6 +80,7 @@ header {
   justify-content: space-between;
 }
 header .logo-container {
+  display: inline-block;
   background-image: var(--logo);
   height: 60px;
   min-width: 100px;
@@ -812,4 +813,117 @@ footer .contact .contact-info .working-hours::before {
   background-color: var(--text-primary);
   -webkit-mask: url(./assets/icons/clock.svg) center/contain no-repeat;
   mask: url(./assets/icons/clock.svg) center/contain no-repeat;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#menu h1 {
+  text-align: center;
+  font-size: 60px;
+  line-height: 125%;
+  max-width: 800px;
+}
+#menu .menu-selection {
+  margin: 40px 0;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+#menu .menu-selection .option {
+  text-align: right;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid var(--border-inverse);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#menu .menu-selection .option.active {
+  background-color: var(--border-primary);
+  color: var(--bg-page);
+}
+#menu .menu-selection .option .icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--border-inverse);
+}
+#menu .menu-selection .option .icon.active {
+  background-color: var(--bg-page);
+}
+#menu .menu-selection .option .icon-coffee {
+  background-image: url(./assets/icons/coffee.png);
+}
+#menu .menu-selection .option .icon-tea {
+  background-image: url(./assets/icons/tea.png);
+}
+#menu .menu-selection .option .icon-dessert {
+  background-image: url(./assets/icons/dessert.png);
+}
+#menu .items {
+  max-width: 1360px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  row-gap: 40px;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+  margin-bottom: 100px;
+}
+#menu .items .item-card {
+  width: 310px;
+  height: 506px;
+  border: 1px solid var(--border-inverse);
+  border-radius: 40px;
+  cursor: pointer;
+}
+#menu .items .item-card .item-image {
+  width: 308px;
+  height: 308px;
+  border-radius: 40px;
+  background-position: center;
+  background-size: 110%;
+  transition: background-size 0.5s linear;
+}
+#menu .items .item-card .item-description {
+  height: 196px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+#menu .items .item-card .item-description p {
+  padding-top: 12px;
+  flex-grow: 1;
+}
+#menu .items .item-card:hover .item-image {
+  background-size: 100%;
+}
+#menu .items .coffee1 {
+  background-image: url(./assets/img/coffee_item_1.jpg);
+}
+#menu .items .coffee2 {
+  background-image: url(./assets/img/coffee_item_2.jpg);
+}
+#menu .items .coffee3 {
+  background-image: url(./assets/img/coffee_item_3.jpg);
+}
+#menu .items .coffee4 {
+  background-image: url(./assets/img/coffee_item_4.jpg);
+}
+#menu .items .coffee5 {
+  background-image: url(./assets/img/coffee_item_5.jpg);
+}
+#menu .items .coffee6 {
+  background-image: url(./assets/img/coffee_item_6.jpg);
+}
+#menu .items .coffee7 {
+  background-image: url(./assets/img/coffee_item_7.jpg);
+}
+#menu .items .coffee8 {
+  background-image: url(./assets/img/coffee_item_8.jpg);
 }/*# sourceMappingURL=styles.css.map */
