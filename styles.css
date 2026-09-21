@@ -579,4 +579,92 @@ main {
 }
 #about .photo-container .p4 {
   background-image: url(./assets/img/about-4.jpg);
+}
+
+#mobile_app {
+  display: flex;
+  justify-content: space-between;
+}
+#mobile_app .mobile-wrapper {
+  display: flex;
+  align-items: center;
+}
+#mobile_app .mobile-wrapper .download_info {
+  max-width: 630px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+#mobile_app .mobile-wrapper .download_info h2 {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+  color: var(--text-primary);
+}
+#mobile_app .mobile-wrapper .download_info h2 span {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+  font-style: italic;
+  color: var(--text-accent);
+}
+#mobile_app .mobile-wrapper .download_info p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--text-primary);
+}
+#mobile_app .mobile-wrapper .download_info .download_app {
+  display: flex;
+  gap: 20px;
+}
+#mobile_app .mobile-wrapper .download_info .download_app .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 200px;
+  height: 64px;
+  padding: 12px 20px;
+  border: 1px solid var(--border-primary);
+  border-radius: 100px;
+  background-color: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+#mobile_app .mobile-wrapper .download_info .download_app .button:hover {
+  background-color: var(--bg-container);
+  color: var(--text-inverse);
+  border-color: transparent;
+}
+#mobile_app .mobile-wrapper .download_info .download_app .button:hover::before {
+  background-color: var(--text-inverse);
+}
+#mobile_app .mobile-wrapper .download_info .download_app .button.app-store::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/apple.svg) center/contain no-repeat;
+  mask: url(./assets/icons/apple.svg) center/contain no-repeat;
+  flex-shrink: 0;
+}
+#mobile_app .mobile-wrapper .download_info .download_app .button.google-play::before {
+  content: "";
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/android.svg) center/contain no-repeat;
+  mask: url(./assets/icons/android.svg) center/contain no-repeat;
+  flex-shrink: 0;
+}
+#mobile_app .phone_photo {
+  display: flex;
+  align-items: center;
+}
+#mobile_app .phone_photo img {
+  max-width: 100%;
 }/*# sourceMappingURL=styles.css.map */

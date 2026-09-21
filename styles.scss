@@ -537,3 +537,90 @@ main {
         }
     }
 }
+
+#mobile_app {
+    display: flex;
+    justify-content: space-between;
+
+    .mobile-wrapper {
+        display: flex;
+        align-items: center;
+
+        .download_info {
+            max-width: 630px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+
+            h2 {
+                @include heading-2;
+                color: var(--text-primary);
+
+                span {
+                    @include heading-2(true);
+                    color: var(--text-accent);
+                }
+            }
+
+            p {
+                @include body-medium;
+                color: var(--text-primary);
+            }
+
+            .download_app {
+                display: flex;
+                gap: 20px;
+
+                .button {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 12px;
+                    width: 200px;
+                    height: 64px;
+                    padding: 12px 20px;
+                    border: 1px solid var(--border-primary);
+                    border-radius: 100px;
+                    background-color: transparent;
+                    color: var(--text-primary);
+                    cursor: pointer;
+                    transition:
+                        border-color 0.3s ease,
+                        background-color 0.3s ease,
+                        color 0.3s ease;
+
+                    &:hover {
+                        background-color: var(--bg-container);
+                        color: var(--text-inverse);
+                        border-color: transparent;
+
+                        &::before {
+                            background-color: var(--text-inverse);
+                        }
+                    }
+
+                    &.app-store::before {
+                        content: '';
+                        @include svg-icon('./assets/icons/apple.svg', var(--text-primary), 24px);
+                        flex-shrink: 0;
+                    }
+                    &.google-play::before {
+                        content: '';
+                        @include svg-icon('./assets/icons/android.svg', var(--text-primary), 24px);
+                        flex-shrink: 0;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .phone_photo {
+        display: flex;
+        align-items: center;
+
+        img {
+            max-width: 100%;
+        }
+    }
+}
