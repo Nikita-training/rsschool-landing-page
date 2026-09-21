@@ -374,7 +374,7 @@ main {
 #hero .info .control-container {
   gap: 12px;
 }
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   #hero .info {
     margin: 0;
     padding: 0 16px;
@@ -389,6 +389,13 @@ main {
     font-weight: 600;
     line-height: 115%;
     font-style: italic;
+  }
+  #hero .info button a span {
+    transform: translateX(-14px);
+  }
+  #hero .info button a::after {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
   }
 }
 @media (max-width: 600px) {
@@ -415,6 +422,7 @@ main {
   align-items: center;
 }
 #favorite h2 {
+  text-align: center;
   font-size: 60px;
   font-weight: 600;
   line-height: 125%;
@@ -524,13 +532,26 @@ main {
 #favorite .pagination .dot.is-active {
   background-color: var(--border-inverse);
 }
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   #favorite h2 {
     font-size: 32px;
     font-weight: 600;
     line-height: 125%;
   }
   #favorite h2 span {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+    font-style: italic;
+  }
+}
+@media (max-width: 600px) {
+  #favorite h1 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+  }
+  #favorite h1 span {
     font-size: 32px;
     font-weight: 600;
     line-height: 125%;
@@ -590,6 +611,40 @@ main {
 }
 #about .photo-container .p4 {
   background-image: url(./assets/img/about-4.jpg);
+}
+@media (max-width: 1000px) {
+  #about .photo-container {
+    flex-wrap: nowrap;
+  }
+  #about .photo-container .photo {
+    background-size: 105%;
+    width: 100%;
+  }
+  #about .photo-container {
+    height: 100%;
+    max-height: none;
+    align-items: center;
+  }
+  #about .photo-container .p2,
+  #about .photo-container .p3 {
+    display: none;
+  }
+  #about .photo-container .t1 {
+    aspect-ratio: 688/590;
+  }
+}
+@media (max-width: 600px) {
+  #about h2 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+  }
+  #about h2 span {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+    font-style: italic;
+  }
 }
 
 #mobile_app {
@@ -718,6 +773,31 @@ main {
 }
 #mobile_app .phone_photo img {
   max-width: 100%;
+}
+@media (max-width: 1000px) {
+  #mobile_app {
+    flex-direction: column;
+  }
+  #mobile_app .phone_photo {
+    padding-top: 100px;
+    align-self: center;
+  }
+}
+@media (max-width: 600px) {
+  #mobile_app .mobile-wrapper .download_info h2 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+  }
+  #mobile_app .mobile-wrapper .download_info h2 span {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+    font-style: italic;
+  }
+  #mobile_app .mobile-wrapper .download_info .download_app {
+    flex-direction: column;
+  }
 }
 
 footer {
@@ -875,6 +955,27 @@ footer .contact .contact-info .working-hours::before {
   -webkit-mask: url(./assets/icons/clock.svg) center/contain no-repeat;
   mask: url(./assets/icons/clock.svg) center/contain no-repeat;
 }
+@media (max-width: 1000px) {
+  footer {
+    flex-direction: column;
+  }
+  footer .contact {
+    margin-top: 0px;
+  }
+}
+@media (max-width: 600px) {
+  footer .social-info h2 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+  }
+  footer .social-info h2 span {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+    font-style: italic;
+  }
+}
 
 #menu {
   display: flex;
@@ -1018,4 +1119,23 @@ footer .contact .contact-info .working-hours::before {
 }
 #menu .items .coffee8 {
   background-image: url(./assets/img/coffee_item_8.jpg);
+}
+@media (max-width: 1000px) {
+  #menu .items {
+    max-height: 1050px;
+    overflow: hidden;
+  }
+}
+@media (max-width: 600px) {
+  #menu h1 {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+  }
+  #menu h1 span {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 125%;
+    font-style: italic;
+  }
 }/*# sourceMappingURL=styles.css.map */

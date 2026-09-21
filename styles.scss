@@ -213,7 +213,7 @@ header {
         }
     }
 
-    @include md {
+    @include md3 {
         nav {
             display: none;
         }
@@ -344,6 +344,20 @@ main {
                     @include heading-m-1(true);
                 }
             }
+
+            button {
+                a {
+                    span {
+                        transform: translateX(-14px);
+                    }
+
+                    &::after {
+                        opacity: 1;
+                        transform: translateY(-50%) translateX(0);
+                    }
+                }
+
+            }
         }
     }
 
@@ -371,6 +385,7 @@ main {
     align-items: center;
 
     h2 {
+        text-align: center;
         @include heading-2;
         color: var(--text-primary);
         padding-bottom: 40px;
@@ -488,6 +503,18 @@ main {
             }
         }
     }
+
+    @include sm2 {
+
+        h1 {
+            @include heading-m-2;
+
+            span {
+                @include heading-m-2(true);
+            }
+        }
+
+    }
 }
 
 #about {
@@ -549,6 +576,44 @@ main {
         .p4 {
             background-image: url(./assets/img/about-4.jpg);
         }
+    }
+
+    @include md2 {
+        .photo-container {
+            flex-wrap: nowrap;
+
+            .photo {
+                background-size: 105%;
+                width: 100%;
+            }
+
+            height: 100%;
+            max-height: none;
+            align-items: center;
+
+            .p2,
+            .p3 {
+                display: none;
+            }
+
+            .t1 {
+                aspect-ratio: 688/590;
+            }
+        }
+    }
+
+    @include sm2 {
+
+
+        h2 {
+            @include heading-m-2;
+
+            span {
+                @include heading-m-2(true);
+            }
+        }
+
+
     }
 }
 
@@ -669,6 +734,36 @@ main {
             max-width: 100%;
         }
     }
+
+    @include md2 {
+        flex-direction: column;
+
+        .phone_photo {
+            padding-top: 100px;
+            align-self: center;
+        }
+    }
+
+    @include sm2 {
+        .mobile-wrapper {
+            .download_info {
+                h2 {
+                    @include heading-m-2;
+
+                    span {
+                        @include heading-m-2(true);
+                    }
+                }
+
+                .download_app {
+                    flex-direction: column;
+                }
+            }
+        }
+
+
+    }
+
 }
 
 footer {
@@ -815,6 +910,29 @@ footer {
         }
 
     }
+
+    @include md2 {
+        flex-direction: column;
+
+        .contact {
+            margin-top: 0px;
+
+        }
+    }
+
+    @include sm2 {
+        .social-info {
+            h2 {
+                @include heading-m-2;
+
+                span {
+                    @include heading-m-2(true);
+                }
+            }
+        }
+
+    }
+
 }
 
 
@@ -986,6 +1104,24 @@ footer {
 
         .coffee8 {
             background-image: url(./assets/img/coffee_item_8.jpg);
+        }
+    }
+
+    @include md2 {
+        .items {
+            max-height: 1050px;
+            overflow: hidden;
+        }
+    }
+
+    @include sm2 {
+
+        h1 {
+            @include heading-m-2;
+
+            span {
+                @include heading-m-2(true);
+            }
         }
     }
 }
