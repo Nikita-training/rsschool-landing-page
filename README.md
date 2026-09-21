@@ -1,1 +1,1 @@
-# rsschool-landing-page
+https://Nikita-training.github.io/rsschool-landing-page/
