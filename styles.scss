@@ -1112,10 +1112,41 @@ footer {
         }
     }
 
+    .refresh-btn {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        &::before {
+            content: '';
+            @include svg-icon('./assets/icons/refresh.svg', var(--border-inverse), 60px);
+            transition: background-color 0.3s ease;
+        }
+
+        &:hover::before {
+            background-color: var(--text-accent);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--text-accent);
+            outline-offset: 2px;
+        }
+    }
+
     @include md2 {
         .items {
+            margin-bottom: 40px;
             max-height: 1050px;
             overflow: hidden;
+        }
+
+        .refresh-btn {
+            display: inline-flex;
+            padding-bottom: 100px;
         }
     }
 
