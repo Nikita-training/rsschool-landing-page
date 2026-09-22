@@ -921,6 +921,7 @@ footer {
     }
 
     @include sm2 {
+        padding: 60px 16px;
         .social-info {
             h2 {
                 @include heading-m-2;

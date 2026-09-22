@@ -964,6 +964,9 @@ footer .contact .contact-info .working-hours::before {
   }
 }
 @media (max-width: 600px) {
+  footer {
+    padding: 60px 16px;
+  }
   footer .social-info h2 {
     font-size: 32px;
     font-weight: 600;
