@@ -283,47 +283,48 @@ main {
             color: var(--text-inverse);
         }
 
-        button {
-            a {
-                @include action-link;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                padding: 20px 78px;
-                border-radius: 100px;
-                background-color: var(--bg-page);
-                color: var(--text-primary);
-                position: relative;
-                overflow: hidden;
+        a {
+            @include action-link;
+            width: 200px;
+            height: 64px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 78px;
+            border-radius: 100px;
+            background-color: var(--bg-page);
+            color: var(--text-primary);
+            position: relative;
+            overflow: hidden;
 
+            span {
+                display: inline-block;
+                transition: transform 0.3s ease;
+            }
+
+            &::after {
+                content: '';
+                @include svg-icon('./assets/icons/coffee-cup.svg', var(--text-primary), 22px);
+                position: absolute;
+                top: 50%;
+                right: 60px;
+                transform: translateY(-50%) translateX(-10px);
+                opacity: 0;
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                pointer-events: none;
+            }
+
+            &:hover {
                 span {
-                    display: inline-block;
-                    transition: transform 0.3s ease;
+                    transform: translateX(-14px);
                 }
 
                 &::after {
-                    content: '';
-                    @include svg-icon('./assets/icons/coffee-cup.svg', var(--text-primary), 22px);
-                    position: absolute;
-                    top: 50%;
-                    right: 60px;
-                    transform: translateY(-50%) translateX(-10px);
-                    opacity: 0;
-                    transition: opacity 0.3s ease, transform 0.3s ease;
-                    pointer-events: none;
-                }
-
-                &:hover {
-                    span {
-                        transform: translateX(-14px);
-                    }
-
-                    &::after {
-                        opacity: 1;
-                        transform: translateY(-50%) translateX(0);
-                    }
+                    opacity: 1;
+                    transform: translateY(-50%) translateX(0);
                 }
             }
+
         }
 
         .control-container {
@@ -345,19 +346,17 @@ main {
                 }
             }
 
-            button {
-                a {
-                    span {
-                        transform: translateX(-14px);
-                    }
-
-                    &::after {
-                        opacity: 1;
-                        transform: translateY(-50%) translateX(0);
-                    }
+            a {
+                span {
+                    transform: translateX(-14px);
                 }
 
+                &::after {
+                    opacity: 1;
+                    transform: translateY(-50%) translateX(0);
+                }
             }
+
         }
     }
 
@@ -922,6 +921,7 @@ footer {
 
     @include sm2 {
         padding: 60px 16px;
+
         .social-info {
             h2 {
                 @include heading-m-2;
@@ -1059,6 +1059,10 @@ footer {
                     color: var(--text-primary);
                 }
 
+                h2 {
+                    @include heading-3;
+                    color: var(--text-primary);
+                }
 
                 p {
                     padding-top: 12px;
