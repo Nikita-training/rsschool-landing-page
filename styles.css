@@ -330,10 +330,12 @@ main {
   line-height: 150%;
   color: var(--text-inverse);
 }
-#hero .info button a {
+#hero .info a {
   font-size: 16px;
   font-weight: 600;
   line-height: 150%;
+  width: 200px;
+  height: 64px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -344,11 +346,11 @@ main {
   position: relative;
   overflow: hidden;
 }
-#hero .info button a span {
+#hero .info a span {
   display: inline-block;
   transition: transform 0.3s ease;
 }
-#hero .info button a::after {
+#hero .info a::after {
   content: "";
   display: inline-block;
   width: 22px;
@@ -364,10 +366,10 @@ main {
   transition: opacity 0.3s ease, transform 0.3s ease;
   pointer-events: none;
 }
-#hero .info button a:hover span {
+#hero .info a:hover span {
   transform: translateX(-14px);
 }
-#hero .info button a:hover::after {
+#hero .info a:hover::after {
   opacity: 1;
   transform: translateY(-50%) translateX(0);
 }
@@ -390,10 +392,10 @@ main {
     line-height: 115%;
     font-style: italic;
   }
-  #hero .info button a span {
+  #hero .info a span {
     transform: translateX(-14px);
   }
-  #hero .info button a::after {
+  #hero .info a::after {
     opacity: 1;
     transform: translateY(-50%) translateX(0);
   }
@@ -1083,6 +1085,12 @@ footer .contact .contact-info .working-hours::before {
   flex-direction: column;
 }
 #menu .items .item-card .item-description h3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+  color: var(--text-primary);
+}
+#menu .items .item-card .item-description h2 {
   font-size: 24px;
   font-weight: 600;
   line-height: 125%;
