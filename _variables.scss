@@ -1,0 +1,158 @@
+// THEME COLORS
+
+:root {
+  --text-primary: #403F3D;
+  --text-inverse: #E1D4C9;
+  --text-accent: #B0907A;
+
+  --bg-page: #E1D4C9;
+  --bg-container: #665F55;
+  --bg-overlay: rgba(64, 63, 61, 0.8);
+
+  --border-primary: #C1B6AD;
+  --border-inverse: #665F55;
+
+  --logo: url('./assets/logo/light.png');
+}
+
+[data-theme="dark"] {
+  --text-primary: #E1D4C9;
+  --text-inverse: #E1D4C9;
+  --text-accent: #B0907A;
+
+  --bg-page: #292826;
+  --bg-container: #403F3D;
+  --bg-overlay: rgba(41, 40, 38, 0.8);
+
+  --border-primary: #665F55;
+  --border-inverse: #C1B6AD;
+
+  --logo: url('./assets/logo/dark.png');
+}
+
+
+@mixin heading-1($accent: false) {
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 105%;
+
+  @if $accent {
+    font-style: italic;
+  }
+}
+
+@mixin heading-2($accent: false) {
+  font-size: 60px;
+  font-weight: 600;
+  line-height: 125%;
+
+  @if $accent {
+    font-style: italic;
+  }
+}
+
+@mixin heading-3 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+@mixin body-medium {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@mixin body-caption {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 140%;
+}
+
+@mixin action-link {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+}
+
+@mixin action-burger {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 125%;
+}
+
+// TYPOGRAPHY MOBILE
+
+@mixin heading-m-1($accent: false) {
+  font-size: 42px;
+  font-weight: 600;
+  line-height: 115%;
+
+  @if $accent {
+    font-style: italic;
+  }
+}
+
+@mixin heading-m-2($accent: false) {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 125%;
+
+  @if $accent {
+    font-style: italic;
+  }
+}
+
+// SVG
+
+@mixin svg-icon($url, $color, $size) {
+  display: inline-block;
+  width: $size;
+  height: $size;
+  background-color: $color;
+  -webkit-mask: url(#{$url}) center / contain no-repeat;
+  mask: url(#{$url}) center / contain no-repeat;
+}
+
+// RESPONSIVE
+$breakpoint-sm: 480px;
+$breakpoint-sm2: 600px;
+$breakpoint-md: 767.98px;
+$breakpoint-md3: 768px;
+$breakpoint-md2: 1000px;
+$breakpoint-xl: 1440px;
+
+@mixin sm {
+  @media (max-width: #{$breakpoint-sm}) {
+    @content;
+  }
+}
+
+@mixin sm2 {
+  @media (max-width: #{$breakpoint-sm2}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (max-width: #{$breakpoint-md}) {
+    @content;
+  }
+}
+@mixin md3 {
+  @media (max-width: #{$breakpoint-md3}) {
+    @content;
+  }
+}
+
+@mixin md2 {
+  @media (max-width: #{$breakpoint-md2}) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media (min-width: #{$breakpoint-xl}) {
+    @content;
+  }
+}
