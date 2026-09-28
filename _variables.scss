@@ -8,11 +8,16 @@
   --bg-page: #E1D4C9;
   --bg-container: #665F55;
   --bg-overlay: rgba(64, 63, 61, 0.8);
+  --bg-modal: #E1D4C9;
+  --bg-modal-menu:#403F3D;
 
   --border-primary: #C1B6AD;
   --border-inverse: #665F55;
 
   --logo: url('./assets/logo/light.png');
+
+  --btn-light:#B0907A;
+  --btn-menu:#E1D4C9;
 }
 
 [data-theme="dark"] {
@@ -23,11 +28,18 @@
   --bg-page: #292826;
   --bg-container: #403F3D;
   --bg-overlay: rgba(41, 40, 38, 0.8);
+  --bg-modal: #403F3D;
+  --bg-modal-menu:#292826;
 
   --border-primary: #665F55;
   --border-inverse: #C1B6AD;
 
   --logo: url('./assets/logo/dark.png');
+
+  --btn-light:#292826;
+  --btn-dark:#B0907A;
+
+  --btn-menu:#E1D4C9;
 }
 
 
