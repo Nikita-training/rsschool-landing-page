@@ -578,10 +578,26 @@ main {
             }
         }
 
+        .carousel-window {
+            display: flex;
+            width: 100%;
+            max-width: 480px;
+            overflow: hidden;
+            transition: transform 0.4s ease;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            // max-width: 480px;
+            // overflow: hidden;
+            transition: transform 0.4s ease;
+        }
+
         .carousel {
+            flex: 0 0 100%;
             text-align: center;
             max-width: 480px;
-            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
