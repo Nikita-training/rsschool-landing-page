@@ -20,15 +20,19 @@ function createSlide(slide) {
     return el;
 }
 
+let goTo, current;
+let isAnimating = false;
+
 async function initCarousel() {
     const res    = await fetch('./slider.json');
     const data   = await res.json();
     const slides = data.slides;
 
-    const track   = document.querySelector('.carousel-track');
-    const dots    = Array.from(document.querySelectorAll('.pagination .dot'));
-    const prevBtn = document.querySelector('.left');
-    const nextBtn = document.querySelector('.right');
+    const track     = document.querySelector('.carousel-track');
+    const carouselW = document.querySelector('.carousel-window');
+    const dots      = Array.from(document.querySelectorAll('.pagination .dot'));
+    const prevBtn   = document.querySelector('.left');
+    const nextBtn   = document.querySelector('.right');
 
     track.replaceChildren();
 
@@ -38,25 +42,28 @@ async function initCarousel() {
     slide.append(createSlide(slides[0]));
     track.append(slide);
 
-    const TOTAL = slides.length;
+    const TOTAL      = slides.length;
     const TRACK_SIZE = TOTAL + 2;
 
-    let current = 1;
+    current = 1;
 
-    function goTo(index, animate = true) {
+    goTo = function (index, animate = true) {
         current = index;
         track.style.transition = animate ? 'transform 0.4s ease' : 'none';
         track.style.transform  = `translateX(-${(100) * index}%)`;
 
         const dotIndex = (index - 1 + TOTAL) % TOTAL;
         dots.forEach((dot, i) => dot.classList.toggle('is-active', i === dotIndex));
-    }
+    };
 
     function next() { goTo(current + 1); }
     function prev() { goTo(current - 1); }
 
+    track.addEventListener('transitionstart', () => isAnimating = true);
     track.addEventListener('transitionend', (e) => {
         if (e.propertyName !== 'transform') return;
+        isAnimating = false;
+
         if (current === TRACK_SIZE - 1) goTo(1, false);
         if (current === 0) goTo(TOTAL, false);
     });
@@ -74,6 +81,34 @@ async function initCarousel() {
     });
 
     goTo(1, false);
+
+    const MOBILE_WIDTH = 600;
+    let startX = 0;
+    let isDragging = false;
+
+    function dragStart(e) {
+        if (window.innerWidth > MOBILE_WIDTH) return;
+        if (isAnimating) return;
+
+        isDragging = true;
+        startX = e.touches[0].clientX;
+    }
+
+    function dragEnd(e) {
+        if (!isDragging) return;
+        isDragging = false;
+
+        const deltaX = e.changedTouches[0].clientX - startX;
+
+        if (deltaX < 0) {
+            goTo(current + 1);
+        } else if (deltaX > 0) {
+            goTo(current - 1);
+        }
+    }
+
+    carouselW.addEventListener('touchstart', dragStart);
+    carouselW.addEventListener('touchend',   dragEnd);
 }
 
 initCarousel();

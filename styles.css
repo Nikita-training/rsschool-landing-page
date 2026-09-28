@@ -628,12 +628,27 @@ main {
 #favorite .carousel-section button:hover::before {
   background-color: var(--text-inverse);
 }
+@media (max-width: 600px) {
+  #favorite .carousel-section button {
+    display: none;
+  }
+}
 #favorite .carousel-section .carousel-window {
   display: flex;
   width: 100%;
   max-width: 480px;
   overflow: hidden;
   transition: transform 0.4s ease;
+}
+@media (max-width: 600px) {
+  #favorite .carousel-section .carousel-window {
+    max-width: initial;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    overscroll-behavior-x: none;
+  }
 }
 #favorite .carousel-section .carousel-track {
   display: flex;

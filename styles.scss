@@ -582,6 +582,11 @@ main {
                     background-color: var(--text-inverse);
                 }
             }
+
+            @include sm2 {
+                display: none;
+            }
+
         }
 
         .carousel-window {
@@ -590,6 +595,14 @@ main {
             max-width: 480px;
             overflow: hidden;
             transition: transform 0.4s ease;
+
+            @include sm2 {
+                max-width: initial;
+                touch-action: pan-y;
+                user-select: none;
+                overscroll-behavior-x: none;
+            }
+
         }
 
         .carousel-track {
@@ -1378,8 +1391,8 @@ footer {
             background-repeat: no-repeat;
 
             @include md3 {
-            display: none;
-        }
+                display: none;
+            }
         }
 
         .modal-info {
