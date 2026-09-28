@@ -6,9 +6,13 @@
   --bg-page: #E1D4C9;
   --bg-container: #665F55;
   --bg-overlay: rgba(64, 63, 61, 0.8);
+  --bg-modal: #E1D4C9;
+  --bg-modal-menu:#403F3D;
   --border-primary: #C1B6AD;
   --border-inverse: #665F55;
   --logo: url('./assets/logo/light.png');
+  --btn-light:#B0907A;
+  --btn-menu:#E1D4C9;
 }
 
 [data-theme=dark] {
@@ -18,9 +22,14 @@
   --bg-page: #292826;
   --bg-container: #403F3D;
   --bg-overlay: rgba(41, 40, 38, 0.8);
+  --bg-modal: #403F3D;
+  --bg-modal-menu:#292826;
   --border-primary: #665F55;
   --border-inverse: #C1B6AD;
   --logo: url('./assets/logo/dark.png');
+  --btn-light:#292826;
+  --btn-dark:#B0907A;
+  --btn-menu:#E1D4C9;
 }
 
 a {
@@ -293,7 +302,7 @@ header .control-container .theme-btn button {
   transition: background-color 0.2s;
 }
 header .control-container .theme-btn button.light {
-  background-color: var(--text-accent);
+  background-color: var(--btn-light);
 }
 header .control-container .theme-btn button.light::before {
   content: "";
@@ -305,7 +314,7 @@ header .control-container .theme-btn button.light::before {
   mask: url(./assets/icons/Sun.svg) center/contain no-repeat;
 }
 header .control-container .theme-btn button.dark {
-  background-color: var(--bg-page);
+  background-color: var(--btn-dark);
 }
 header .control-container .theme-btn button.dark::before {
   content: "";
@@ -1197,11 +1206,12 @@ footer .contact .contact-info .working-hours::before {
 }
 #menu .menu-selection .option.active {
   background-color: var(--bg-container);
-  color: var(--bg-page);
+  border: 1px solid var(--bg-container);
+  color: var(--btn-menu);
 }
 #menu .menu-selection .option:hover {
   background-color: var(--bg-container);
-  color: var(--bg-page);
+  color: var(--btn-menu);
 }
 #menu .menu-selection .option:hover .icon {
   background-color: var(--bg-page);
@@ -1353,7 +1363,7 @@ footer .contact .contact-info .working-hours::before {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(64, 63, 61, 0.5);
+  background: var(--bg-overlay);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -1376,7 +1386,7 @@ footer .contact .contact-info .working-hours::before {
   z-index: 100;
 }
 .modal-overlay .modal {
-  background: var(--bg-page);
+  background: var(--bg-modal);
   border-radius: 40px;
   padding: 16px;
   max-width: 800px;
@@ -1461,8 +1471,8 @@ footer .contact .contact-info .working-hours::before {
   transition: background-color 0.2s, color 0.2s;
 }
 .modal-overlay .modal .modal-info .modal-sizes .modal-size.active {
-  background: var(--bg-container);
-  color: var(--bg-page);
+  background: var(--bg-modal-menu);
+  color: var(--text-inverse);
   border-color: transparent;
 }
 .modal-overlay .modal .modal-info .modal-sizes .modal-size.active .size-letter {
@@ -1499,8 +1509,8 @@ footer .contact .contact-info .working-hours::before {
   transition: background-color 0.2s, color 0.2s;
 }
 .modal-overlay .modal .modal-info .modal-additives .modal-additive.active {
-  background: var(--bg-container);
-  color: var(--bg-page);
+  background: var(--bg-modal-menu);
+  color: var(--text-inverse);
   border-color: transparent;
 }
 .modal-overlay .modal .modal-info .modal-additives .modal-additive.active .additive-num {
