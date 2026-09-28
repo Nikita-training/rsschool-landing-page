@@ -1317,11 +1317,11 @@ footer {
     }
 
     @include md2 {
-        .items {
-            margin-bottom: 40px;
-            max-height: 1050px;
-            overflow: hidden;
-        }
+        // .items {
+        //     margin-bottom: 40px;
+        //     max-height: 1050px;
+        //     overflow: hidden;
+        // }
 
         .refresh-btn {
             display: inline-flex;

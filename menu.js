@@ -1,3 +1,16 @@
+const INITIAL_LIMIT = 4;
+const STEP = 4;
+const WIDE_WIDTH = 1000;
+
+let allProducts = [];
+let currentCategory = 'coffee';
+let visibleCount = INITIAL_LIMIT;
+
+let itemsEl;
+let refreshWrapper;
+let refreshBtn;
+let options;
+
 function createCard(product) {
     const card = document.createElement('div');
     card.className = 'item-card';
@@ -25,24 +38,32 @@ function createCard(product) {
     return card;
 }
 
-function renderCategory(products, category, container) {
-    container.replaceChildren();
+function renderCategory() {
+    const filtered = allProducts.filter(p => p.category === currentCategory);
 
-    const filtered = products.filter(p => p.category === category);
+    const isWide = window.innerWidth > WIDE_WIDTH;
+    const limit = isWide ? filtered.length : visibleCount;
+    const visible = filtered.slice(0, limit);
 
-    filtered.forEach(product => {
-        container.append(createCard(product));
+    itemsEl.replaceChildren();
+    visible.forEach(product => {
+        itemsEl.append(createCard(product));
     });
+
+    const more = limit < filtered.length;
+    refreshWrapper.style.display = more ? '' : 'none';
 }
 
 async function initMenu() {
     const res = await fetch('./products.json');
-    const products = await res.json();
+    allProducts = await res.json();
 
-    const items = document.querySelector('.items');
-    const options = document.querySelectorAll('.menu-selection .option');
-    console.log(options)
-    renderCategory(products, 'coffee', items);
+    itemsEl = document.querySelector('.items');
+    refreshWrapper = document.querySelector('.refresh-wrapper');
+    refreshBtn = document.querySelector('.refresh-btn');
+    options = document.querySelectorAll('.menu-selection .option');
+
+    renderCategory();
 
     options.forEach(option => {
         option.addEventListener('click', () => {
@@ -55,9 +76,20 @@ async function initMenu() {
             option.classList.add('active');
             option.querySelector('.icon').classList.add('active');
 
-            const category = option.dataset.category;
-            renderCategory(products, category, items);
+            currentCategory = option.dataset.category;
+            visibleCount = INITIAL_LIMIT;
+            renderCategory();
         });
+    });
+
+    refreshBtn.addEventListener('click', () => {
+        visibleCount += STEP;
+        renderCategory();
+    });
+
+    window.addEventListener('resize', () => {
+        visibleCount = INITIAL_LIMIT;
+        renderCategory();
     });
 }
 

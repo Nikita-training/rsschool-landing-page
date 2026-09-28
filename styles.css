@@ -1331,11 +1331,6 @@ footer .contact .contact-info .working-hours::before {
   outline-offset: 2px;
 }
 @media (max-width: 1000px) {
-  #menu .items {
-    margin-bottom: 40px;
-    max-height: 1050px;
-    overflow: hidden;
-  }
   #menu .refresh-btn {
     display: inline-flex;
     padding-bottom: 100px;
