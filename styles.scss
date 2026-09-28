@@ -15,6 +15,111 @@ body {
 }
 
 
+#burger-menu {
+    position: fixed;
+    transform: translateX(100%);
+    top: 100px;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-page);
+    z-index: 1;
+    transition: 0.3s;
+
+    &.is-open {
+        transform: translateX(0);
+        transition: 0.3s;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        max-width: 455px;
+        gap: 100px;
+        width: 100%;
+
+        ul {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 60px;
+
+            li {
+
+                a {
+                    @include action-burger;
+                    position: relative;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%) scaleX(0);
+                        width: 100%;
+                        height: 2px;
+                        background-color: var(--text-primary);
+                        transition: transform 0.3s ease;
+                    }
+
+                    &:hover::after {
+                        transform: translateX(-50%) scaleX(1);
+                    }
+                }
+            }
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            width: 72px;
+            height: 22px;
+            position: relative;
+
+            a {
+                @include action-burger;
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    right: -46px;
+                    content: '';
+                    @include svg-icon('./assets/icons/coffee-cup.svg', var(--text-primary), 40px);
+                }
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 50%;
+                transform: translateX(-50%) scaleX(0);
+                width: 100%;
+                height: 2px;
+                background-color: black;
+                transition: transform 0.3s ease;
+            }
+
+            &:hover::after {
+                transform: translateX(-50%) scaleX(1);
+            }
+
+            &.active::after {
+                transform: translateX(-50%) scaleX(1);
+            }
+        }
+    }
+}
+
+
 header {
     display: flex;
     width: 100%;
@@ -63,6 +168,46 @@ header {
                         transform: translateX(-50%) scaleX(1);
                     }
                 }
+            }
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            width: 72px;
+            height: 22px;
+            position: relative;
+
+            a {
+                @include action-link;
+                position: relative;
+
+                &::after {
+                    position: absolute;
+                    right: -30px;
+                    content: '';
+                    @include svg-icon('./assets/icons/coffee-cup.svg', var(--text-primary), 22px);
+                }
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -5px;
+                left: 50%;
+                transform: translateX(-50%) scaleX(0);
+                width: 100%;
+                height: 2px;
+                background-color: black;
+                transition: transform 0.3s ease;
+            }
+
+            &:hover::after {
+                transform: translateX(-50%) scaleX(1);
+            }
+
+            &.active::after {
+                transform: translateX(-50%) scaleX(1);
             }
         }
     }
@@ -177,7 +322,6 @@ header {
             background: transparent;
             cursor: pointer;
 
-            // circle
             width: 44px;
             height: 44px;
             border-radius: 50%;
