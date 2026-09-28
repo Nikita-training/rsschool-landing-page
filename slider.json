@@ -1,0 +1,31 @@
+{
+    "slides": [
+        {
+            "id": 1,
+            "title": "S'mores Frappuccino",
+            "description": "This new drink takes an espresso and mixes it with brown sugar and cinnamon before being topped with oat milk.",
+            "price": "$5.50",
+            "currency": "USD",
+            "image": "/assets/img/coffee-slider-1.png",
+            "alt": "S'mores Frappuccino in a tall glass"
+        },
+        {
+            "id": 2,
+            "title": "Caramel Macchiato",
+            "description": "Fragrant and unique classic espresso with rich caramel-peanut syrup, with cream under whipped thick foam.",
+            "price": "$5.00",
+            "currency": "USD",
+            "image": "/assets/img/coffee-slider-2.png",
+            "alt": "Caramel Macchiato in a glass cup"
+        },
+        {
+            "id": 3,
+            "title": "Ice coffee",
+            "description": "A popular summer drink that tones and invigorates. Prepared from coffee, milk and ice.",
+            "price": "$4.50",
+            "currency": "USD",
+            "image": "/assets/img/coffee-slider-3.png",
+            "alt": "Ice coffee in a tall glass with ice cubes"
+        }
+    ]
+}

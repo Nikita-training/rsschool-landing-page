@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --text-primary: #403F3D;
   --text-inverse: #E1D4C9;
@@ -75,7 +76,111 @@ body {
   color: var(--text-primary);
 }
 
+#burger-menu {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-page);
+  z-index: 5;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+#burger-menu.is-open {
+  transform: translateX(0);
+}
+#burger-menu nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  width: 100%;
+  max-width: 455px;
+}
+#burger-menu nav ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#burger-menu nav ul li a {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 125%;
+  position: relative;
+  color: var(--text-primary);
+}
+#burger-menu nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+  transition: transform 0.3s ease;
+}
+#burger-menu nav ul li a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+#burger-menu nav .menu {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: auto;
+  height: auto;
+}
+#burger-menu nav .menu a {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 125%;
+  position: relative;
+  color: var(--text-primary);
+  padding-right: 56px;
+}
+#burger-menu nav .menu a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/coffee-cup.svg) center/contain no-repeat;
+  mask: url(./assets/icons/coffee-cup.svg) center/contain no-repeat;
+}
+#burger-menu nav .menu::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+#burger-menu nav .menu:hover::after {
+  transform: scaleX(1);
+}
+#burger-menu nav .menu.active::after {
+  transform: scaleX(1);
+}
+
 header {
+  z-index: 10;
   display: flex;
   width: 100%;
   max-width: 1440px;
@@ -118,6 +223,47 @@ header nav ul li a::after {
   transition: transform 0.3s ease;
 }
 header nav ul li a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+header nav .menu {
+  display: flex;
+  align-items: center;
+  width: 72px;
+  height: 22px;
+  position: relative;
+}
+header nav .menu a {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  position: relative;
+}
+header nav .menu a::after {
+  position: absolute;
+  right: -30px;
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-color: var(--text-primary);
+  -webkit-mask: url(./assets/icons/coffee-cup.svg) center/contain no-repeat;
+  mask: url(./assets/icons/coffee-cup.svg) center/contain no-repeat;
+}
+header nav .menu::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transition: transform 0.3s ease;
+}
+header nav .menu:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+header nav .menu.active::after {
   transform: translateX(-50%) scaleX(1);
 }
 header .control-container {
@@ -482,10 +628,37 @@ main {
 #favorite .carousel-section button:hover::before {
   background-color: var(--text-inverse);
 }
+@media (max-width: 600px) {
+  #favorite .carousel-section button {
+    display: none;
+  }
+}
+#favorite .carousel-section .carousel-window {
+  display: flex;
+  width: 100%;
+  max-width: 480px;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+@media (max-width: 600px) {
+  #favorite .carousel-section .carousel-window {
+    max-width: initial;
+    touch-action: pan-y;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+            user-select: none;
+    overscroll-behavior-x: none;
+  }
+}
+#favorite .carousel-section .carousel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 0.4s ease;
+}
 #favorite .carousel-section .carousel {
+  flex: 0 0 100%;
   text-align: center;
   max-width: 480px;
-  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1158,11 +1331,6 @@ footer .contact .contact-info .working-hours::before {
   outline-offset: 2px;
 }
 @media (max-width: 1000px) {
-  #menu .items {
-    margin-bottom: 40px;
-    max-height: 1050px;
-    overflow: hidden;
-  }
   #menu .refresh-btn {
     display: inline-flex;
     padding-bottom: 100px;
@@ -1180,4 +1348,216 @@ footer .contact .contact-info .working-hours::before {
     line-height: 125%;
     font-style: italic;
   }
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(64, 63, 61, 0.5);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(64, 63, 61, 0.596);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal-overlay .modal {
+  background: var(--bg-page);
+  border-radius: 40px;
+  padding: 16px;
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  position: relative;
+}
+.modal-overlay .modal .modal-image {
+  flex-shrink: 0;
+  max-width: 310px;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 40px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+@media (max-width: 768px) {
+  .modal-overlay .modal .modal-image {
+    display: none;
+  }
+}
+.modal-overlay .modal .modal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+}
+.modal-overlay .modal .modal-info h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+  color: var(--text-primary);
+  margin: 0;
+}
+.modal-overlay .modal .modal-info .modal-desc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--text-primary);
+  margin: 0;
+}
+.modal-overlay .modal .modal-info .modal-label {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--text-primary);
+  margin: 0;
+  font-weight: 400;
+}
+.modal-overlay .modal .modal-info .modal-sizes {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.modal-overlay .modal .modal-info .modal-sizes .modal-size {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid var(--border-primary);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+  flex-wrap: wrap;
+}
+.modal-overlay .modal .modal-info .modal-sizes .modal-size .size-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--border-primary);
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.modal-overlay .modal .modal-info .modal-sizes .modal-size.active {
+  background: var(--bg-container);
+  color: var(--bg-page);
+  border-color: transparent;
+}
+.modal-overlay .modal .modal-info .modal-sizes .modal-size.active .size-letter {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+.modal-overlay .modal .modal-info .modal-additives {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.modal-overlay .modal .modal-info .modal-additives .modal-additive {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px 8px 8px;
+  border: 1px solid var(--border-primary);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.modal-overlay .modal .modal-info .modal-additives .modal-additive .additive-num {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--border-primary);
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.modal-overlay .modal .modal-info .modal-additives .modal-additive.active {
+  background: var(--bg-container);
+  color: var(--bg-page);
+  border-color: transparent;
+}
+.modal-overlay .modal .modal-info .modal-additives .modal-additive.active .additive-num {
+  background: var(--bg-page);
+  color: var(--text-primary);
+}
+.modal-overlay .modal .modal-info .modal-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: auto;
+}
+.modal-overlay .modal .modal-info .modal-total span:first-child {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+  color: var(--text-primary);
+}
+.modal-overlay .modal .modal-info .modal-total .modal-price {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 125%;
+  color: var(--text-primary);
+}
+.modal-overlay .modal .modal-info .modal-note {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 140%;
+  color: var(--text-primary);
+  opacity: 0.7;
+  margin: 0;
+  padding: 12px 0 12px 24px;
+  position: relative;
+  border-top: 1px solid var(--border-primary);
+}
+.modal-overlay .modal .modal-info .modal-note::before {
+  content: "ⓘ";
+  position: absolute;
+  left: 0;
+  top: 12px;
+  font-size: 16px;
+  opacity: 1;
+}
+.modal-overlay .modal .modal-info .modal-close {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  padding: 12px 20px;
+  border: 1px solid var(--border-inverse);
+  border-radius: 100px;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.modal-overlay .modal .modal-info .modal-close:hover {
+  background: var(--bg-container);
+  color: var(--bg-page);
+  border-color: transparent;
 }/*# sourceMappingURL=styles.css.map */

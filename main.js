@@ -1,9 +1,4 @@
-
 initTheme()
-
-
-
-
 
 function initTheme() {
     const root = document.documentElement;
@@ -29,3 +24,43 @@ function initTheme() {
     light?.addEventListener('click', () => apply('light'));
     dark?.addEventListener('click', () => apply('dark'));
 };
+
+
+const burger = document.querySelector('.burger-btn');
+const nav    = document.querySelector('#burger-menu');
+
+
+burger.addEventListener('click', () => {
+    const isOpen = burger.classList.toggle('is-open');
+    nav.classList.toggle('is-open', isOpen);
+    blockScroll(isOpen)
+});
+
+nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        burger.classList.remove('is-open');
+        nav.classList.remove('is-open');
+        blockScroll(false)
+    });
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        burger.classList.remove('is-open');
+        nav.classList.remove('is-open');
+        blockScroll(false)
+    }
+});
+
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 769) {
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+        nav.classList.remove('is-open');
+        blockScroll(false)
+    }
+});
+
+function blockScroll(isOpen) {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+}
