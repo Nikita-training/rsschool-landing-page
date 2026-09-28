@@ -13,6 +13,7 @@
   --logo: url('./assets/logo/light.png');
   --btn-light:#B0907A;
   --btn-menu:#E1D4C9;
+  --btn-close:#665F55;
 }
 
 [data-theme=dark] {
@@ -30,6 +31,7 @@
   --btn-light:#292826;
   --btn-dark:#B0907A;
   --btn-menu:#E1D4C9;
+  --btn-close:#292826;
 }
 
 a {
@@ -1514,7 +1516,7 @@ footer .contact .contact-info .working-hours::before {
   border-color: transparent;
 }
 .modal-overlay .modal .modal-info .modal-additives .modal-additive.active .additive-num {
-  background: var(--bg-page);
+  background: var(--bg-modal);
   color: var(--text-primary);
 }
 .modal-overlay .modal .modal-info .modal-total {
@@ -1559,7 +1561,7 @@ footer .contact .contact-info .working-hours::before {
   font-weight: 600;
   line-height: 150%;
   padding: 12px 20px;
-  border: 1px solid var(--border-inverse);
+  border: 1px solid var(--border-primary);
   border-radius: 100px;
   background: transparent;
   color: var(--text-primary);
@@ -1567,7 +1569,7 @@ footer .contact .contact-info .working-hours::before {
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 .modal-overlay .modal .modal-info .modal-close:hover {
-  background: var(--bg-container);
-  color: var(--bg-page);
+  background: var(--btn-close);
+  color: var(--text-accent);
   border-color: transparent;
 }/*# sourceMappingURL=styles.css.map */
